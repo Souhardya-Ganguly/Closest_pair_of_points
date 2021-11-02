@@ -29,20 +29,20 @@ double smallest_distance(vector<P> points){
     vector<P> stripe;
     for(P a : left){
         if(a.x > middle_x - d){
-            stripe.push_back(p);
+            stripe.push_back(a);
         }
     }
     for(P a : right){
         if(a.x > middle_x + d){
-            stripe.push_back(p);
+            stripe.push_back(a);
         }
     }
-    sort(stripe.begin(), stripe.end(), [&](const P& a, const P& b)){
+    sort(stripe.begin(), stripe.end(), [&](const P& a, const P& b) {
         return a.y < b.y;
     });
-    for(int i = 0; i < (int) stripe.size(), ++i){
-        for(int j = i+1; j< (int) stripe.size() && stripe[i.y + d; ++j]){
-            d = min(d, distance(stripe[i], stri[e[j]));
+    for(int i = 0; i < (int)stripe.size(); ++i){
+        for(int j = i+1; j< (int)stripe.size() && stripe[i].y + d; ++j){
+            d = min(d, distance(stripe[i], stripe[j]));
         }
     }
     return d;
@@ -53,6 +53,11 @@ int main(){
     scanf("%d", &n);
     vector<P> points(n);
     for(P& p : points){
-        scanf("%d%d", &p.x, &p,y);
+        scanf("%d%d", &p.x, &p.y);
     }
+    sort(points.begin(), points.end(), [&](const P& a, const P& b) {
+        return a.y < b.y;
+    });
+    double answer = smallest_distance(points);
+    cout << answer << endl;
 }
