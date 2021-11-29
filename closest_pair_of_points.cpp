@@ -50,8 +50,10 @@ double smallest_distance(vector<P> points){
 
 int main(){
     int n;
+    printf("Enter the number of coordinates:: ");
     scanf("%d", &n);
     vector<P> points(n);
+    printf("Enter the x and y coordinates seperated by a space:: ");
     for(P& p : points){
         scanf("%d%d", &p.x, &p.y);
     }
